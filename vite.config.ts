@@ -11,7 +11,7 @@ export default defineConfig({
         server.middlewares.use((req, res, next) => {
           if (
             process.env.MAINTENANCE === 'true' &&
-            !req.headers.host?.includes('vercel.app')
+            req.headers.host?.includes('vercel.app')
           ) {
             const fs = require('fs')
             const path = require('path')
